@@ -28,6 +28,24 @@ public class BookMap {
 			}
 			lineScan.close();
 		}
+		
+		System.out.print("Enter a word (q to quit): ");
+		String word = console.nextLine();
+		
+		while (!word.equals("q")) {
+			Integer occurance = bookMap.get(word);
+			System.out.println(word + ":" + occurance);
+			System.out.print("Enter a word (q to quit): ");
+			word = console.nextLine();
+		}
+		
+		for(String key : bookMap.keySet()) {
+			Integer occurance = bookMap.get(key);
+			if (occurance >= 200) {
+			System.out.println(key + ":" + occurance);
+			}
+		}
+		
 		console.close();
 		book.close();
 	}
